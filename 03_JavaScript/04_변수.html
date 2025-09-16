@@ -96,8 +96,126 @@
             console.log(age);
             console.log(hobby);
         }
+    </script>
+
+    <hr>
+
+    <h3>* 변수 선언 위치에 따른 전역 / 지역 변수</h3>
+
+    <script>
+        // 변수 선언
+        var str = "var 전역 변수";
+        str2 = "전역변수";
+
+        // window.onload = 현재 이 HTML문서가 전부 다 로딩되고 나서 
+        // 곧바로 실행할 이벤트 핸들러(익명함수)를 대입
+        window.onload = function() {
+           // alert("하잉");
+            var str = "지역번수"; // 전역변수와 중복된 이름으로
+            var str3 = "새로운 지역변수";
+            str4 = "나는 뭐게?";
+            console.log("-----------str------------");
+            console.log(str); // 변수명이 동일하다면 지역변수 우선권이 높음
+            console.dir(window);
+            console.log(window.str);
+            console.log(this.str);
+
+            // this 키워드가 항상 window객체를 가리키는 것은 아님
+
+            console.log("----------str2-------------");
+            console.log(str2); // window, this 키워드 붙일 수 있음
+                               // 붙여주는 편이 조금 더 명확하긴 함
+
+            console.log("-----------str3-------------");
+            console.log(str3);
+            console.log(window.str3); // undefined(정의되지않음)
+
+            console.log("str4");
+            console.log(str4);
+        };
+        // alert("쿄쿄잉");
 
     </script>
+
+    <hr>
+
+    <h3>* 자료형</h3>
+
+    <p>
+        변수 선언 시 자료형을 별도로 지정하지 않음(자료형의 개념이 없는건 아님)
+        => 변수에 대입되는 값에 따라서 알아서 자료형을 결정함 : 타입추론
+    </p>
+
+    <h4>자바스크립트의 자료형</h4>
+
+    <ul>
+        <li>string(문자열)</li>
+        <li>number(숫자)</li>
+        <li>boolean(논리)</li>
+        <li>object(객체)</li>
+        <li>function(함수)</li>
+        <li>undefined(초기화가 안된 상태)</li>
+    </ul>
+
+    <button id="type-btn">자료형</button>
+    <div id="area" style="border: 1px solid coral; height: auto; min-height: 150px;"></div>
+
+    <script>
+
+        document.querySelector("#type-btn").onclick = function() {
+
+            const name = "홍길동";
+            const age = 15;
+            const isGoodThief = false;
+            const hobby = ["운동", "공부"];
+
+            const family = {
+                "아빠" : "홍준표",
+                "형" : "홍석천",
+            };
+
+            const testFn = function() {
+                alert("가족 못부름");
+            };
+
+            let noVal;
+
+            const area = document.getElementById("area");
+
+            // 자바식 해결법
+            /*
+            area.innerHTML = name + "<br>";
+            area.innerHTML += age + "<br>";
+            area.innerHTML += isGoodThief + "<br>";
+            area.innerHTML += hobby + "<br>";
+            area.innerHTML += family + "<br>";
+            area.innerHTML += testFn + "<br>";
+            area.innerHTML += noVal + "<br>";
+            */
+           // 자바 스크립트식
+           area.innerHTML = `${name} <br>
+                             ${age} <br>
+                             ${isGoodThief} <br>
+                             ${hobby} <br>
+                             ${family} <br>
+                             ${testFn} <br>
+                             ${noVal} <br><hr>`;
+
+            // 자료형 출력해보기
+            // 자료형을 확인할 때 필요한 함수 typeOf(인자값);
+            area.innerHTML += `${typeof (name)} <br>
+                               ${typeof (age)} <br>
+                               ${typeof (isGoodThief)} <br>
+                               ${typeof (hobby)} <br>
+                               ${typeof (family)} <br>
+                               ${typeof (testFn)} <br>
+                               ${typeof (noVal)} <br><hr>`;
+
+        };
+    </script>
+
+
+
 </body>
 </html>
 
