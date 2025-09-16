@@ -85,18 +85,107 @@
                 area.innerHTML += `${value} <br> `;
             }
             */
+
             console.log("--------이게맵이다------------");
             // 고급 함수
-            const mapArray = array.map(function(e) {
-                console.log(e);
-                return `${e}<br>`;
-            })
-            .join(""); // 배열의 요소를 문자열로 합쳐줌
 
-            console.log(`map으로 반환받은 배열 : ${mapArray}`);
+            area.innerHTML = array.map((e) => `${e}<br>`).join("");
+            // .join("");  배열의 요소를 문자열로 합쳐줌
+
+            /*
+                ------function()를 안쓰고 대신할수 있는 문장
+                function() {
+                }
+                =================>   () => {    }
+                function(a) {
+                }
+                =================>    a => {    }
+                function(a, b) {
+                }
+                =================>     (a, b) => {    }
+                function(){
+                    return a;
+                }
+                =================>     () => a
+            */
         };
 
     </script>
-    
+
+    <hr>
+
+    <h3>* 배열의 선언</h3>
+
+    <p>
+        빈 배열을 선언 할 때, 크기를 지정할 수 있음 <br>
+    </p>
+
+    <button onclick="defArray();">버튼</button>
+    <div id="area2" class="area small"></div>
+
+    <script>
+
+        function defArray() {
+
+            const array1 = [];  // 권장사항
+            const array2 = new Array(3);    // 크기가 3 <== 쓰지말자
+
+            console.log(array1);
+            console.log(array2);
+
+            // 배열에 요소 추가
+            array1[0] = "사과";
+            array1[1] = "바나나";
+            array1[2] = "당근";
+
+            document.querySelector("#area2").innerHTML = array1;
+
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 배열용 메소드</h3>
+
+    <h4> 1) indexOf(찾고자하는 요소) : 배열에서 해당 요소가 위치한 인덱스 반환</h4>
+
+    <div id="area3" class="area small"></div>
+    <button onclick="holiday();">빨간날찾기</button>
+
+    <script>
+        function holiday() {
+
+            const days = [
+                "추석",
+                "개천절",
+                "설날",
+                "크리스마스",
+                "부처님오신날",
+                "현충일",
+                "광복절",
+                "어린이날",
+                "삼일절",
+                "한글날"
+            ];
+
+            // console.log(days.indexOf("현충일"));
+
+            // 빨간날 찾기 버튼을 클릭하면 사용자에게 텍스트를 입력 받아서(window.prompt())
+            // 사용자가 입력한 텍스트가 배열의 요소로 존재할 경우 id가 area3인 div요소의
+            // Content영역에 XXX(사용자가 입력한 텍스트)은(는) 빨간날이 맞습니다.
+
+            // 사용자가 입력한 텍스트가 배열의 요소로 존재하지 않을 경우
+            // id가 area3인 div요소의 Content영역에 
+            // XXX(사용자가 입력한 텍스트)은(는) 빨간날이 아닙니다.
+
+            // 라고 출력해주세요.
+
+        }
+    </script>
+
+
+
+
+
 </body>
 </html>
