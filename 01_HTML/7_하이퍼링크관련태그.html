@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>앵커태그</title>
+</head>
+<body>
+    <!--
+        HyperLink
+        비선형적인 구조로 웹문서에서 또 다른 문서로 이동할 수 있게끔 연결시켜주는 기능
+    -->
+    
+    <h1>a태그를 이용한 하이퍼링크</h1>
+
+    <a href="6_영역관련태그.html">영역이당</a>
+    <!-- 현재 인터넷이 연결된 상황이라면 서비스하고 있는 웹페이지로 링크 가능-->
+    <a href="http://www.naver.com">네이버로~~</a>
+
+    <!-- _self (기존탭에서 이동), _blank (새로운 창이 열리면서 이동)-->
+
+    <ul>
+        <li><a href="http://www.naver.com" target="_self">네이버로~~</a></li>
+        <li><a href="http://www.google.com"target="_blank">구글로~~</a></li>
+    </ul>
+
+    <h3>이미지 클릭해서 링크 연결해보기</h3>
+
+    <a 
+        target="_blank">
+        href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%8B%A8%ED%92%8D%EA%B0%9C%ED%99%94%EC%8B%9C%EA%B8%B0&ackey=z99ldz79">
+
+        <img 
+            src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTAzMTdfODIg%2FMDAxNzQyMTU5MjI1OTA1.LzVCYYhBeW8WFirmg0Qc5rc4jk-PGWysRfdt6TQUcS0g.rAc8x0pgBvC8_S0UWExHj7PW-Jmomt8aLuLCt657L84g.PNG%2F2.png&type=sc960_832/>
+            alt="단풍이다 단풍"
+    </a>
+    
+    <br><br><br>
+    <style>
+        #btn{
+            text-decoration : none;
+            display : block;
+            width : 180px;
+            height: 60px;
+            background-color : pink;
+            border : 1px solid black;
+            border-radius : 15px;
+            :hover{
+                text-decoration : underline;
+                background-color : yellow;
+            }
+        }
+    </style>
+
+    <a href="2_표관련태그.html" target="_blank" id=""btn">
+        <div>표 관련태그 보러가기</div>   
+    </a>
+
+    <h4>한 페이지 내에서 점프점프 시키기</h4>
+
+    <br><br><br><br><br>
+
+    <a href="#list"> 위로가기 </a>
+
+</body>
+
+ <br><br><br><br><br>
+</html>
+

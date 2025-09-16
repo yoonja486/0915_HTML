@@ -1,0 +1,106 @@
+        #header_2{
+            position: relative;
+        }
+
+        #search-form{
+            width: 50%;
+            height: 20%;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+        }
+
+        /* 검색창 form태그 내부 div 속성 */
+        #search-form > div{
+            height: 100%;
+            float: left;
+        }
+
+        #search-text{
+            width: 80%;
+        }
+        #search-btn{
+            width: 20%;
+        }
+        /* input 요소들 크기 늘리기 */
+        #search-form input{
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 2px solid moccasin;
+            background-color: mediumorchid;
+            border-radius: 5px;
+        }
+
+        #search-form input:focus{
+            outline: 2px dashed gold;
+        }
+
+        #search-form input[type="submit"]{
+            color: white;
+            font-weight: 800;
+            font-size: 10px;
+            background-size: cover;
+            background-color: mediumpurple;
+            font-family: "굴림체";
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        #header_3{
+            position: relative;
+        }
+
+        #search-form{
+            width: 50%;
+            height: 20%;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+        }
+
+        /* 검색창 form태그 내부 div 속성 */
+        #search-form > div{
+            height: 100%;
+            float: left;
+        }
+
+        #search-text{
+            width: 80%;
+        }
+        #search-btn{
+            width: 20%;
+        }
+        /* input 요소들 크기 늘리기 */
+        #search-form input{
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 2px solid moccasin;
+            background-color: mediumorchid;
+            border-radius: 5px;
+        }
+
+        #search-form input:focus{
+            outline: 4px dashed gold;
+        }
+
+        #search-form input[type="submit"]{
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+            background-size: cover;
+            background-color: mediumpurple;
+            font-family: "굴림체";
+
+            &:hover {
+                cursor: pointer;
+            }
+        }

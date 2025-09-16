@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>구조를 잡아보자</title>
+    <style>
+        div, main, header, footer{
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+
+        #wrap{
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+            display: flex;
+            /* 세로로 배치하기 */
+            flex-direction: column;
+        }
+
+        /* header, footer영역 */
+        header{
+            flex: 2;
+        }
+        footer{
+            flex: 2;
+        }
+
+        /* main */
+        main{
+            flex: 6;
+
+            display: flex;
+        }
+
+        /* main의 내부 영역 */
+        #content_1 {
+            flex: 7;
+        }
+        #content_2 {
+            flex: 3;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+       <header></header>
+       <main>
+        <div id="content_1"></div>
+        <div id="content_2"></div>
+       </main>
+       <footer></footer>
+    </div>
+
+
+    
+</body>
+</html>

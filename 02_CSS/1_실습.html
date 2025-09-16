@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>실습용</title>
+
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <style>
+        div, header, main, footer, p, ul, li, nav{
+            box-sizing: border-box;
+            border: 1px solid;
+            
+        }
+
+        #wrap{
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+            
+            display: flex;
+            flex-direction: column;
+        }
+        header{
+            flex: 2;
+            display: flex;
+        }
+        footer{
+            flex: 1.5;
+        }
+        main{
+            flex: 6;
+            display: flex;
+        }
+        nav{
+            flex: 0.5;
+            justify-content: space-evenly;
+        }
+       
+        /* 내부 요소들 너비 비율 설정 */
+        #header_1{
+            flex: 2;
+            background-image: url("resources/css/image/강아지단체.jpg");
+            background-size: 100%;
+            background-position: 100%;
+        }
+        #header_2{
+            flex: 3.5;
+        }
+        #header_3{
+            flex: 3.5;
+        }
+        #content_2{
+            flex: 6;
+            background-image: url("resources/css/image/수영장.jpg") ;
+            background-size: 100%;
+            background-position: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header>
+            <div id="header_1">
+            </div>
+            
+            <div id="header_2">
+                <div id="input-id"></div>
+                 <p>...</p>
+                <form action="search.kh" method="get" id="search-form">
+                    <div id="search-text">
+                        <input type="text" name="query"/>
+                    </div>
+                    <div id="search-btn">
+                        <input type="submit" value="검색"/>
+                    </div>
+                </form> 
+               
+        
+            </div>
+            <div id="header_3">
+                <div id="input-id"></div>
+                 <p>...</p>
+                <form action="search.kh" method="get" id="search-form">
+                    <div id="search-text">
+                        <input type="text" name="query"/>
+                    </div>
+                    <div id="search-btn">
+                        <input type="submit" value="검색"/>
+                    </div>
+                </form> 
+            </div>
+            <div id="header_4">
+
+            </div>
+        </header>
+        <nav>
+            <ul id="navbar">
+                <li>
+                    <a href="#">호 텔</a>
+                    <ul>
+                        <li><a href="#">예약하기</a></li>
+                        <li><a href="#">예약안내</a></li>
+                        <li><a href="#">객실 미리보기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">편의시설</a>
+                    <ul>
+                        <li><a href="#">바베큐장</a></li>
+                        <li><a href="#">야외운동장</a></li>
+                        <li><a href="#">야외수영장</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">게시판</a>
+                    <ul>
+                        <li><a href="#">이용문의</a></li>
+                        <li><a href="#">이용후기</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">오시는 길</a></li>
+                <li><a href="#">주변 관광지</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+            <div id="content_3"></div>
+        </main>
+           
+        <footer>
+        <div id="footer_1">
+            <a href="#">이용약관</a> |
+            <a href="#">개인정보 처리방침</a> |
+            <a href="#">고객 센터</a> 
+
+        </div>
+        <div id="footer_2">
+         <p id="p_1">
+            <br />
+            
+         </p>
+         <p id="p_2">
+            Copyright © 2025 HGJ Information Educational Institute All Right Reserved
+         </p>
+        </div>
+
+    </footer>
+    </div>
+</body>
+</html>

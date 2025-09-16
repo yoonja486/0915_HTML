@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>여섯가지 방법</title>
+
+    <style>
+        .area{
+            width: 350px;
+            height: 150px;
+            border: 1px solid lavenderblush;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>HTML요소 접근해봅시당</h1>
+
+    <h3>1) 아이디 속성값을 이용해서 접근하기</h3>
+
+    <div id="area1" class="area"></div>
+    <button onclick="selectById();">아이디로 접근하기</button>
+
+    <script>
+        function selectById() {
+        
+            // 아이디 속성값을 이용해서 요소에 접근!
+            // console.log(document);
+            // document.getElementById('접근할 요소의 아이디 속성값');
+            // 요소객체라고 부른다.
+
+            const area1 = document.getElementById("area1");
+            console.log(area1);
+            console.dir(area1);
+
+            // property(속성) : value(값)
+            // 속성값 get / 속성값 set <- 선택한 요소의 속성가지고 해야할 일
+            // 속성에 접근하는 방법 ? ==> 선택된요소객체.속성명
+
+            console.log(area1.id);
+
+            area1.innerHTML = "아이디로 접근성공! <br>";    // set하기
+            console.log(area1.innerHTML);   // get하기
+
+            // 선택된 div요소의 style속성을 변경
+            area1.style.backgroundColor = "lightpink";
+            area1.style.color = "red";
+
+            area1.style = "color:green";
+
+            // 개발자도구로 확인 시 인라인방식으로 스타일이 부여된 것을 확인
+        }
+
+    </script>
+
+    <br /><br /><br />
+
+    <hr>
+
+    <div id="color-div" class="area" style="background: yellowgreen;"></div>
+    <button id="color-btn">다음 시간은 실습시간</button>
+    <!-- 
+        버튼을 클릭할 때 마다 div요소 색상이 변경되도록 일곱빛깔 돌리기
+        ==> 자바했을 때 조건문을 떠올리기
+    -->
+    
+    <script>
+      const colorBtn = document.querySelector("#color-btn");
+        
+      colorBtn.onclick = function () {
+
+        const colorDiv = document.querySelector("#color-div");
+        // console.log(colorDiv); div요소까지 오케이
+
+        // 색깔바꾸기
+        // if(colorDiv.style.backgroundColor)
+        // console.log(colorDiv.style.backgroundColor);
+        if(colorDiv.style.backgroundColor == "yellowgreen") {
+            colorDiv.style.backgroundColor = "red";
+        } else if(colorDiv.style.backgroundColor == "red") {
+            colorDiv.style.backgroundColor = "orangered";
+        } else if(colorDiv.style.backgroundColor == "orangered") {
+            colorDiv.style.backgroundColor = "yellow";
+        } else if(colorDiv.style.backgroundColor == "yellow") {
+            colorDiv.style.backgroundColor = "green";
+        } else if(colorDiv.style.backgroundColor == "green") {
+            colorDiv.style.backgroundColor = "skyblue";
+        } else if(colorDiv.style.backgroundColor == "skyblue") {
+            colorDiv.style.backgroundColor = "blue";
+        } else {
+            colorDiv.style.backgroundColor = "yellowgreen";
+        }
+        
+      };
+    </script>
+
+    <hr>
+
+    <h3> 2) 태그명으로 접근하는 방법</h3>
+    
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+
+    <button onclick="tag();">태그명으로 접근하기</button>
+
+    <script>
+
+        function tag() {
+            // document.getElmentsByTagName('태그명');
+            const array = document.getElementsByTagName("li");
+
+            console.log(array);
+            console.log(array.length);
+            // 선택된 여러 개의 요소 객체들이 배열 형태로 담겨서 반환
+            // 자바스크립트에서의 배열은 []로 표현
+
+            array[0].style.backgroundColor = "red";
+            array[1].style.backgroundColor = "orangered";
+            array[2].style.backgroundColor = "yellow";
+            array[3].style.backgroundColor = "green";
+            array[4].style.backgroundColor = "pink";
+
+            let redColor = 100;
+            for(let i = 0; i < array.length; i++) {
+                array[i].style.backgroundColor = `rgb(${redColor}, 120, 120)`;
+                redColor += 30;
+            }
+        };
+    </script>
+
+    <hr>
+
+    <h3>3) name속성값으로 요소 객체 접근해보기</h3>
+
+    <form action="요청받아줄서버" method="GET">
+        <fieldset>
+            <legend>메뉴판</legend>
+
+           <input type="checkbox" name="menu" value="아메리카노"/>아메리카노
+           <input type="checkbox" name="menu" value="콜드브루"/>콜드브루
+           <input type="checkbox" name="menu" value="라떼"/>라떼
+           <input type="checkbox" name="menu" value="딸기라떼"/>딸기라떼
+           <input type="checkbox" name="menu" value="말차라떼"/>말차라떼
+
+           <button type="submit">버튼</button>
+        </fieldset>
+    </form>
+
+    <button id="menu-btn">버튼버튼이예요</button>
+
+    <script>
+        const btnEl = document.querySelector("#menu-btn");
+
+        btnEl.addEventListener("click", function() {
+            
+            // name속성값을 이용해서 요소 객체들 접근하기
+            // document.getElementsByName('name속성값');
+            const menus = document.getElementsByName("menu");
+            console.log(menus);
+            console.log(menus[0]);
+            console.log(menus[0].value);
+            console.log(menus[0].checked);
+
+            // 만약에 버튼을 클릭했을 때 아메리카노 체크박스가 체크된 상태라면 alert창을 띄우겠다.
+            // if(menus[0].checked) {
+            //    alert("아메리카노 췍");
+            // }
+
+            // 버튼 클릭 시 체크가 된 체크박스의 value속성값을 순차적으로 나열하여 alert창에 출력하기
+            // 선택하신 메뉴는 아메리카노 라떼 입니다.
+            // 선택하신 메뉴는 아메리카노 말차라떼 입니다.
+
+            if(menus[0].checked) {
+                alert("선택하신 메뉴는 아메리카노 입니다.")
+            }
+        });
+
+    </script>
+    
+
+</body>
+</html>
+
+<br><br><br><br><br><br><br><br><br><br>

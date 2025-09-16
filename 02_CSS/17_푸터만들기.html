@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>푸터임</title>
+    <style>
+        div, footer{
+            box-sizing: border-box;
+        }
+        footer{
+            width: 1000px;
+            height: 160px;
+        }
+
+        /* -------------밑에만 들고가기------------------ */
+
+        #footer_1, #footer_2{
+            width: 100%;
+        }
+        #footer_1{
+            height: 20%;
+            background: orangered;
+        }
+        #footer_2{
+            height: 80%;
+        }
+        /* footer_1의 자식요소 a태그만 선택 */
+        #footer_1 > a{
+            text-decoration: none;
+            color: black;
+            margin: 33px;
+            vertical-align: middle;
+
+            &:hover{
+                color:yellowgreen;
+            }
+        }
+        /* p 태그에 대한 세부스타일 설정 */
+        #footer_2 > p{
+            width: 100%;
+            margin: 0;
+            background-color: khaki;
+            font-weight: lighter;
+            font-family: "궁서체";
+        }
+
+        #p_1{
+            height: 80%;
+            font-size: 14px;
+            padding-top: 5px;
+            padding-left: 4px;
+        }
+        #p_2{
+            height: 20%;
+            font-size: 11px;
+            padding-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+    <footer>
+
+        <div id="footer_1">
+            <a href="#">이용약관</a> |
+            <a href="#">개인정보 처리방침</a> |
+            <a href="#">강사 구인</a>
+        </div>
+        <div id="footer_2">
+         <p id="p_1">
+            강남점 1관 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 <br />
+            강남점 2관 : 서울특별시 강남구 테헤란로10길 9 그랑프리 빌딩<br />
+            강남점 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩<br />
+            종로점 : 서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩)
+         </p>
+         <p id="p_2">
+            Copyright © 2025 KH Information Educational Institute All Right Reserved
+         </p>
+
+        </div>
+
+    </footer>
+</body>
+</html>

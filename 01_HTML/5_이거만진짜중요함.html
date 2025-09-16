@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>입력양식 및 폼 관련 태그</title>
+</head>
+<body>
+<!--
+    당분간 Java에서의 Scanner역할을 대신    
+-->
+<!--
+    System.out.print("아이디를 입력해주세요 : ");
+    Scanner sc = new Scanner(System.in);
+    String userId = sc.nextLine();
+-->
+
+<label>아이디를 입력해주세요 : </label>
+<input type="text" placeholder="최대 15자 이내로 작성바람">
+<br/>
+<textarea name="" id=""></textarea>
+<br/>
+<hr>
+
+<h1>입력 양식 관련 태그</h1>
+
+<h2>input 태그</h2>
+<p>
+    사용자에게 값을 입력받을 수 있는 텍스트상자, 체크박스 등을 만들 수 있는 태그
+    <br />
+    type 속성으로 지정 가능
+</p>
+
+아이디 : <input type="text"><br/>
+비밀번호 : <input type="password"><br> <!--입력값이 사용자 화면상에서 가려짐-->
+먹고싶은거 다 골라보세요 : <br/>
+<input type="checkbox" /> 마이쮸 <input type="checkbox" /> ABC초코렛 <br>
+마이쮸 주황색? 분홍색? <br>
+<input type="radio" /> 주황색 <input type="radio" /> 분홍색 <br>
+<input type="submit"> <!--요청받기--> <br>
+
+<hr>
+
+<h2>Form 태그 : 당분간 아주 아주 중요한 친구</h2>
+
+<p>
+    입력양식들이 들어갈 틀을 의미 <br />
+    form태그 내부에 위치한 submit 버튼을 클릭 시<br />
+    해당 form태그에 작성한(선택한) 사용자가 입력한 값들을<br />
+    요청을 받아주는 서버로 넘기면서 요청하는 역할을 하는 것이 <br />
+    form 태그 & submit 버튼
+    <br /><br /><br />
+
+    form action=""<br /> form태그에 action속성은 써줘야한다. <br />
+    method=""<br />      method속성은 필요하면 써야겠다. <br />
+
+    * action : 해당 form안에 사용자가 입력한 값들을 전달하면서 요청 보낼 URL을 작성 <br />
+
+    * method : 요청 전송 방식 지정하는 속성(GET방식(기본값) / POST방식) <br />
+      > GET방식 : 요청 시 사용자가 입력한 값들이 URL에 노출 <br />
+      > POST방식 : 요청 시 사용자가 입력한 값들이 URL에 안보임 <br />
+
+      from태그 내부에 존재하는 submit버튼을 클릭 시 <br />
+      action속성에 작성한 URL로 <br />
+      method속성에 작성한 요청 방식을 통해 <br />
+      사용자가 input요소에 입력한 값들이 key=value세트로 전달 <br />
+</p>
+<!--
+    System.out.print("검색할 키워드를 입력해주세요 : ")
+    String keyword = sc.nextLine();
+    controller.findByKeyword(keyword);
+-->
+
+<form action="findByKeyword" method="get">
+    검색할 키워드 : <input type="text" name="keyword" />
+    뽀너스로 하나 더 : <input type="text" name="bonus" />
+    <input type="submit" />
+</form>
+
+
+
+<h5> 버튼을 만드는 방법</h5>
+
+<h5>input 요소를 이용해서 버튼만들기</h5>
+
+<p>
+    - type : "submit" / "reset" / "button"
+    
+    <br />
+    <input type="submit" />
+    <input type="reset" />
+    <input type="button" value="버튼" />
+    <br /><br />
+</p>
+
+<h5>button요소를 이용해서 버튼을 만들기</h5>
+
+<p>
+    - type : "sumit" / "reset" / "button" <br>
+
+    <button type="submit">제출버튼</button>
+    <button type="reset">초기화버튼</button>
+    <button type="button">버튼</button>
+
+    <!-- 
+    button요소가 form태그 내부에 존재할 경우 type속성을 생략했을 때 기본값 submit !!!
+    form태그 내부에 작성할 때는 항상 type속성을 까먹지 말고 꼭! 귀찮더라도 적어주는 것이 좋습니다. 
+    -->
+
+</p>
+
+<hr />
+
+<h4>select태그와 option태그</h4>
+
+<p>
+    - 사용자에게 키보드로 직접 입력받는 것이 아니라 제시한 여러 개의 옵션 중에서 한 가지를 선택할 수 있게끔 해주는 태그<br>
+    - 제출 시 현재 선택된(selected)값이 넘어감<br>
+    - 각각의 option요소에 value를 기술했을 경우 value속성값이 넘어가며, value속성이 존재하지 않는다면 option의 content영역의 값이 value로 넘어감
+</p>
+
+<form action="요청보낼URL">
+
+  고냉지김치찌개 : 
+  <select name="kimchi_zzigae">
+    <option>김치찌개</option>
+    <option>쭈꾸미김치찌개</option>
+    <option value="all">종합김치찌개</option>
+ </select>
+
+    <br /><br />
+
+    <h5>datalist</h5>
+    김치찌개 : <input type="text" list="menus">
+    <!-- select + textbox -->
+    <datalist>
+        <option value="basic">김치</option>
+        <option value="mandu">만두</option>
+        <option value="ggumi">쭈꾸미</option>
+    </datalist>
+
+    <br /><br />
+    <input type="submit">
+
+
+
+</form>
+</body>
+<br />
+
+</html>

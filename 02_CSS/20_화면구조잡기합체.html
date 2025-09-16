@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>실습용</title>
+
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <style>
+        div, header, main, footer, p, ul, li, nav{
+            box-sizing: border-box;
+        }
+
+        #wrap{
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+        }
+        header{
+            flex: 2;
+            display: flex;
+        }
+        footer{
+            flex: 2;
+        }
+        main{
+            flex: 5.5;
+            display: flex;
+        }
+        nav{
+            flex: 0.5;
+        }
+        
+        /* 내부 요소들 너비 비율 설정 */
+        #header_1{
+            flex: 2;
+        }
+        #header_2{
+            flex: 6.5;
+        }
+        #header_3{
+            flex: 1.5;
+        }
+        #content_1{
+            flex: 1.5;
+        }
+        #content_2{
+            flex: 6;
+        }
+        #content_3{
+            flex: 2.5;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header>
+            <div id="header_1"></div>
+            <div id="header_2">
+             <form action="search.kh" method="get" id="search-form">
+                    <div id="search-text">
+                        <input type="text" name="query"/>
+                    </div>
+                    <div id="search-btn">
+                        <input type="submit" value="검색"/>
+                    </div>
+                </form>
+            </div>
+            <div id="header_3"></div>
+        </header>
+        <nav>
+            <ul id="navbar">
+                <li>
+                    <a href="#">Top</a>
+                    <ul>
+                        <li><a href="#">셔츠/블라우스</a></li>
+                        <li><a href="#">나시</a></li>
+                        <li><a href="#">티셔츠</a></li>
+                        <li><a href="#">맨투맨/후드</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Bottom</a>
+                    <ul>
+                        <li><a href="#">스커트</a></li>
+                        <li><a href="#">팬츠</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Dress</a></li>
+                <li><a href="#">Outer</a>
+                    <ul>
+                    <li><a href="#">점퍼/자켓</a></li>
+                    <li><a href="#">코트</a></li>
+                    <li><a href="#">패딩</a></li>
+                    <li><a href="#">조끼</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+            <div id="content_3"></div>
+        </main>
+           
+        <footer>
+        <div id="footer_1">
+            <a href="#">이용약관</a> |
+            <a href="#">개인정보 처리방침</a> |
+            <a href="#">강사 구인</a>
+        </div>
+        <div id="footer_2">
+         <p id="p_1">
+            강남점 1관 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 <br />
+            강남점 2관 : 서울특별시 강남구 테헤란로10길 9 그랑프리 빌딩<br />
+            강남점 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩<br />
+            종로점 : 서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩)
+         </p>
+         <p id="p_2">
+            Copyright © 2025 KH Information Educational Institute All Right Reserved
+         </p>
+        </div>
+
+    </footer>
+    </div>
+</body>
+</html>
