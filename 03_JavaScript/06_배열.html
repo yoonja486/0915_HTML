@@ -140,7 +140,7 @@
 
             document.querySelector("#area2").innerHTML = array1;
 
-        }
+        };
     </script>
 
     <hr>
@@ -180,10 +180,231 @@
 
             // 라고 출력해주세요.
 
+            // 입력받기
+            const day = prompt("무슨 빨간날을 찾으시나요?");
+            // console.log(day);
+
+            // console.log(days.includes(day));
+            console.log(days.indexOf(day));
+            // 요소로 존재한다 == index(0이상의 정수)
+            // 요소로 존재하지 않는다 == -1
+
+            const index = days.indexOf(day);
+
+            const result = index != -1 ? "맞습니다" : "아닙니다";
+
+            document.getElementById("area3").innerHTML = `${day}는 빨간날이 ${result}`;
+
+        };
+    </script>
+
+    <hr>
+
+    <h3>참고사항</h3>
+
+    <button onclick="remember();">알아두자</button>
+
+    <script>
+        function remember() {
+            
+            // 자바스크립트에서 동등비교
+            console.log(1 == 1); // true
+            console.log("1" == 1); // true
+            console.log([] == 0); // 이게 대체 왜?
+
+            console.log("1" === 1); // false : 값, 자료형 둘다 일치해야만 true
+
+            // 구조분해 할당
+            const array = ["Apple", "Banana", "Carrot"];
+
+            /*
+            const el1 = array[0];
+            const el2 = array[1];
+            const el3 = array[2];
+            console.log(el1, el2, el3);
+            */
+
+            const [el1, el2, el3] = array;
+            console.log(el1, el2, el3);
+
+        };
+    </script>
+
+    <hr>
+
+    <h4>2) concat(배열, 배열, ...) : 여러 개의 배열을 합칠 때 사용</h4>
+
+    <div id="area4" class="area big"></div>
+    <div onclick="merge();">확인</div>      
+
+    <script>
+        function merge() {
+
+            const array1 = ["가나다", "라마바"];
+            const array2 = ["사아자", "차카파"];
+
+            const area = document.querySelector("#area4");
+
+            area.innerHTML = `${array1} <br> 
+                              ${array1.concat(array2)} <br>
+                              ${array1} <br> `;
+
+            const array3 = array1.concat(array2);
+            console.log(array3);
+            const array4 = [...array1, ...array2]; // 배열을 하나씩 풀어헤칠 때 변수 앞에 ...을 찍는다
+            console.log(array4);
+        };
+    </script>
+
+    <hr>
+
+    <h4>3) reverse() : 배열의 요소 순번을 역순으로 바꿔줌</h4>
+
+    <div id="area5" class="area small"></div>
+    <button onclick="arrayReverse();">리바스</button>
+
+    <script>
+
+        function arrayReverse() {
+
+            const array = ["Apple", "Banana", "Melon", "kiwi"];
+            // const newArray = array;  얕은복사로 안씀
+
+            const newArray = [...array];    // 깊은 복사가 필요할 때
+            const area5 = document.getElementById("area5");
+
+            area5.innerHTML = `${array} <br> `;
+            array.reverse();
+            area5.innerHTML = `${array} <br> `;
+        };
+    </script>
+
+    <h4>4) sort() : 배열의 요소를 정렬해줌</h4>
+
+    <div id="area6" class="area small"></div>
+    <button onclick="sort();">정렬해야지</button>
+
+    <script>
+
+        function sort() {
+
+            const array = ["Banana", "Lemon", "Apple", "Kiwi", "Mango", "수박", "イチジク", ];
+
+            const area6 = document.getElementById("area6");
+            area6.innerHTML = `${array} <br> `;
+            array.sort().reverse();
+            area6.innerHTML = `${array} <br> `;
+        };
+    </script>
+
+    <hr>
+
+    <h4>
+        5_1) push(추가할요소) 배열 가장 마지막에 인자로 전달된 요소를 추가하고 크기를 반환
+        5_2) pop() : 배열의 가장 마지막 요소를 뽑아내고 뽑은 요소를 반환
+    </h4>
+
+    <div id="area7" class="area big"></div>
+    <button id="btn7">요소추가</button>
+
+    <script>
+
+        const btn = document.querySelector("#btn7");
+
+        btn.addEventListener("click", () => {
+
+            const area = document.getElementById("area7");
+            const lunchMenu = ["샐러드", "짜장면", "김치찌개", "돈까스"];
+
+            area.innerHTML = `${lunchMenu} <br> `;
+            const newMenu = prompt("추가할 메뉴를 입력해주세요~~");
+            // console.log(newMenu);
+
+            lunchMenu.push(newMenu);
+
+            area.innerHTML += `요소가 추가된 점심메뉴 : ${lunchMenu} <br> `;
+
+           const num =  parseInt(Math.random() * lunchMenu.length);
+           alert(`오늘의 점심 메뉴는 ${lunchMenu[num]} 당첨~`);
+
+           area.innerHTML += `${lunchMenu.pop()} <br> `;
+
+           // 6_1) unshift(추가할요소) : 0번 인덱스에 요소 추가
+           // 6_2) shift() : 0번 인덱스 요소 뽑아내기
+
+           const salad = lunchMenu.shift();
+           area.innerHTML += `풀뽑기 : ${salad} <br> `;
+           lunchMenu.unshift(newMenu);
+           area.innerHTML += `${lunchMenu} <br> `;
+
+           const newLunchMenu = [...lunchMenu, "제육볶음"];
+        });
+    </script>
+
+    <hr>
+
+    <h4>
+        7_1) slice(begin, end)        : 배열의 요소를 추출해줌 <br>
+        7_2) splice(begin, count, el) : 배열의 요소를 추출해서 제거 및 추가
+    </h4>
+
+    <div id="area8" class="area big"></div>
+    <button onclick="goal();">목표</button>
+
+    <script>
+
+        function goal() {
+
+            const area = document.getElementById("area8");
+
+            const array = ["나는", "올 해", "다이어트", "하겠다"];
+
+            area.innerHTML = `올해 목표 : ${array} <br> `;
+
+            // slice
+            area.innerHTML += `slice결고 : ${array.slice(2, 4)} <br> `;
+
+            // splice
+            area.innerHTML += `splice : ${array.splice(1, 1)} <br> `;
+            area.innerHTML += `${array} <br> `;
+            area.innerHTML += `${array.splice(1, 0, "내년에")} <br> `;
+            area.innerHTML += array;
         }
     </script>
 
+    <hr>
 
+    <h4>
+        8) join(구분자) : 배열에 담긴 요소들을 하나의 string타입 문자열로 합쳐주는 메소드
+    </h4>
+
+    <div id="area9" class="area small"></div>
+    <button onclick="join();">버튼</button>
+
+    <script>
+
+        function join() {
+
+            const area = document.querySelector("#area9");
+
+            const arr = ["A", "P", "P", "L", "E",];
+            // console.log(arr);
+            area.innerHTML = `${arr} <br> `;
+            area.innerHTML += `${arr.join()} <br> `;
+            // join메소드는 , 를 가지고 문자열로 합쳐주기 때문에 구분자를 지정해줄 수 있음
+            area.innerHTML += `${arr.join("")} <br> `;
+            
+            const obj = {
+                과일 : "APPLE", 
+            };
+            console.log(obj);
+            area.innerHTML += `${obj} <br> `;
+            // 배열을 HTML요소에 출력할 경우
+            // div.innerHTML = arr
+            // println(참조자료형변수.toString());
+            area.innerHTML += arr.toString();
+        }
+    </script>
 
 
 
