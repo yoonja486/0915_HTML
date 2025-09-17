@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>써보자 써보자 </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            box-sizing: border-box;
+        }
+        #wrap {
+            width: 1200px;
+            height: 400px;
+            margin: auto;
+            box-shadow: 1px 1px 1px lightblue;
+        }
+
+        .card {
+            width: 230px;
+            height: 360px;
+            padding-bottom : 20px;
+            display: inline-block;
+
+            &:hover {
+                box-shadow: 1px 2px 4px lightblue;
+            }
+        }
+
+        .card > img {
+            width: 230px;
+            height: 300px;
+        }
+
+        .card > h4 {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .card > p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>배열과 객체의 활용</h1>
+
+    <h3>* 객체배열 써보기</h3>
+    
+    <!-- 느낌만 보기 -->
+     <div id="wrap"></div>
+
+     <script>
+        window.onload = function() {
+
+            // 컨트롤러로 요청을 보냄~
+
+            // function 요청보내는 함수() {
+                // 얼씨구~~
+           // }
+            // 요청보내는 함수();
+
+            // 컨트롤러가 반환해주는 응답데이터라고 가정
+            const webtoons = [
+            {
+                image : "https://image-comic.pstatic.net/webtoon/842620/thu…l_IMAG21_44eb7809-90e1-46da-a0ec-1ead08a8e9e9.jpg",
+                title : "해골전령 이야기",
+                author : "kain_y / 소라게"
+            },
+            {   image : "https://image-comic.pstatic.net/webtoon/807178/thu…l_IMAG21_28fcfb22-aae7-41b4-8767-05f6dd176b03.jpg",
+                title : "캐슬 2:만인지상",
+                author : "정연, 박만사"
+            },
+            {
+                image : "https://image-comic.pstatic.net/webtoon/642598/thu…l_IMAG21_c784c8b0-c6d3-46ca-9a02-d3c4c04a8c83.jpg",
+                title : "조선왕조실록",
+                author : "무적핑크"
+            },
+            {
+                image : "https://image-comic.pstatic.net/webtoon/747269/thu…l_IMAG21_aabd9952-ff45-47a2-a543-33f19a5c6708.jpg",
+                title : "전지적 독자 시점",
+                author : "UMI / 슬리피-C / 싱숑"
+            },
+            {
+                image : "https://image-comic.pstatic.net/webtoon/838002/thu…l_IMAG21_aee939b2-2d3c-445f-a7d8-82414f4f9482.jpg",
+                title : "종말이 찾아왔다",
+                author : "전선욱"
+            }
+            ];
+
+            console.log(webtoons);
+
+            // const skeleton = webtoons[0];
+
+            // console.log(skeleton);
+            /*
+            const webtoon1 = `<div class="card">
+                        <image src="${skeleton.image}" />
+                        <h4> ${skeleton.title}</h4>
+                        <p>${skeleton.author}</p>
+                        </div>`;
+            */
+
+            let element = "";
+            for(let webtoon of webtoons) {
+                element += `<div class="card">
+                    <img src="${webtoon.image}" />
+                    <h4>${webtoon.title}</h4>
+                    <p>${webtoon.author}</p>
+                    </div> `;
+            };
+
+            document.getElementById("wrap").innerHTML = element;
+        };
+     </script>
+
+
+
+</body>
+</html>
