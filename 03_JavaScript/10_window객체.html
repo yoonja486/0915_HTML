@@ -151,5 +151,101 @@
 
     <button onclick="console.log(location)">로케-이션 확인!!</button>
 
+    <a href="http://www.naver.com">하이~~</a>
+    <!-- a태그는 애초에 클릭 시 요청할 URL을 작성할 수 있는 속성을 제공 -->
+
+    <p>브라우저의 주소입력창 => URL(href속성값)</p>
+
+    <button onclick="loc();">매커니즘~~</button>
+
+    <script>
+        function loc() {
+            location.href = "http://www.naver.com";
+        }
+    </script>
+
+    <!-- 새로고침 -->
+    <button onclick="location.reload();">새로고쳐라</button>
+    <button onclick="location.href=location.href">새로고침</button>
+
+    <!-- 
+        assign(), replace()
+        replace() == 뒤로가기를 사용할 수 없음
+    -->
+    
+    <h5>screen객체</h5>
+    <button onclick="console.log(screen)">스크린</button>
+    <!-- 사용자가 보고 있는 화면에 대한 정보 -->
+
+    <h5>navigator</h5>
+    <button onclick="console.log(navigator)">나비</button>
+    <!-- 브라우저에 대한 정보 -->
+
+    <hr>
+
+    <h2>* DOM(Document Object Model)</h2>
+
+    <p>
+        원리 공부하기
+        - 요소 노드(Element Node) : 태그 자체를 의미 <br>
+        - 텍스트 노드(Text Node)  : 태그 내에 기록되는 내용을 의미 <br>
+
+        텍스트노드가 존재하지 않는 요소(빈태그) : input, img, br, hr
+        텍스트노드가 있는 요소 : div, button, span, label...
+    </p>
+
+    <div id="area3" class="area small"></div>
+    <button onclick="addElement()">빠른</button>
+
+    <script>
+
+        function addElement() {
+
+            // 동적으로 요소를 만들자 처음 문서 로딩할 때는 존재하지 않다가 나중에 만들어지는 요소
+            // == 동적인 요소
+
+            // 컨트롤러에서 응답받은 문자열 => user01
+            /*
+                <h3>user01</h3>
+            */
+
+            const userId = "user01";
+
+            // 1. 문자열로 만드는 방법
+            // document.getElementById("area3").innerHTML = `<h3>${userId}</h3> `;
+
+            // 2. document객체가 제공하는 메소드를 통해 "요소객체"를 만들기
+            // 2_1) elementNode만들기 : document.createElement('태그명');
+            const elementNode = document.createElement("h3");
+            console.log(elementNode);
+
+            // 우리가 나중에 배우게 될 React는 가상 DOM이라는 개념을 사용함
+            
+            // 2_2) textNode만들기 : document.createTextNode('텍스트');
+            const textNode = document.createTextNode(userId);
+            console.log(textNode);
+
+            // 3. 두 개의 노드를 연결
+            // a의 자식으로 b를 추가
+            // a.appendChild(b);
+            elementNode.appendChild(textNode);
+            console.log(elementNode);
+            // document.querySelector("#area3").innerHTML = elementNode;
+            document.querySelector("#area3").appendChild(elementNode);
+
+            // 텍스트 노드가 없는 요소
+
+            const img = document.createElement("img");
+            //     ↑ 이거 객체임
+            // 객체명.속성명 = 값
+
+            img.src = "	https://s.pstatic.net/shopping.phinf/20250918_20/b…103-29ff-41a3-b9c6-791f021bba27.jpg";
+
+
+            document.getElementById("area3").appendChild(img);
+        }
+
+    </script>
+
 </body>
 </html>
