@@ -165,10 +165,39 @@
     <button id="btn2">선택</button>
     <br />
     선택한 지역 : <label id="location">없음</label>을(를) 선택하셨습니다. 
+
+    <script>
+        $(function() {
+            $("#btn2").click(function() {
+                // console.log($("option:selected").html());
+                $("#location").html($("option:selected").html());
+            });
+        });
+    </script>
+
+    <hr>
+
+    <h4>- enabled, disabled</h4>
+
+    <p>
+        활성화 / 비활성화 상태 <br>
+        : enabled
+        : disabled : 아예 쓰지 못하게 막음
+    </p>
+
+    <!-- readonly 쓸 수 있게끔 보이지만 비활성화랑 같음  -->
+    <div id="wrap">
+        활성화 : <input type="text" value="하하하" readonly /> 
+        비활성화 : <input type="text" disabled value="하하하"/>
+    </div>
+
     
-
-
-
+    <script>
+        $(function() {
+            $("wrap > :enabled").css("background", "yellowgreen");
+            $("wrap > :disabled").css("background", "greenyellow");
+        });
+    </script>
 
 
 
